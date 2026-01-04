@@ -55,44 +55,6 @@ class GeminiClient:
                 print(f"Warning: Could not initialize Supabase. Running without persistence: {e}")
                 self.use_database = False
                 self.db = None
-        
-        # System prompt that defines the agent's role and capabilities
-        # self.system_prompt = """You are an AI Study Planner Agent. Your role is to help users create effective study plans, 
-        # provide learning resources, and guide them through their educational journey.
-
-        # You have access to a web search tool. When a user asks for resources, information, or anything that might benefit from 
-        # current online information, you can use the search function by detecting search queries.
-
-        # If a user message starts with "search:" or "/search", treat the rest as a search query. Otherwise, analyze if the user 
-        # might benefit from web search results. If so, you can suggest performing a search or ask clarifying questions.
-
-        # IMPORTANT: When creating study plans or roadmaps, ALWAYS include a Mermaid diagram at the BEGINNING of your response. 
-        # The diagram should visualize the study roadmap structure with a simple flow. Use VALID Mermaid syntax with this format:
-        
-        # ```mermaid
-        # graph TD
-        #     A[Main Topic] --> B[Step 1]
-        #     A --> C[Step 2]
-        #     B --> D[Subtopic 1.1]
-        #     B --> E[Subtopic 1.2]
-        #     C --> F[Subtopic 2.1]
-        #     C --> G[Subtopic 2.2]
-        # ```
-        
-        # CRITICAL Mermaid Requirements:
-        # - Use graph TD (top-down) for roadmaps
-        # - Node IDs must be unique letters (A, B, C, D, etc.)
-        # - Use square brackets [] for node labels: A[Label Text]
-        # - Use --> for connections between nodes
-        # - Keep it simple with basic nodes and connections
-        # - Ensure proper syntax and structure
-        # - Put the labels in Quotes
-        # - the diagram must be easy to read and understand
-        # - Beautify the diagram for clarity
-                
-        # Always be helpful, encouraging, and provide structured study plans when requested. Remember the conversation history 
-        # to provide context-aware responses."""
-
         self.system_prompt = """
             You are an AI Study Planner Agent. Your role is to help users create effective study plans,
             learning roadmaps, and structured educational guidance.
